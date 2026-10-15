@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="vireport" content="width=device-width, initial-scale=1.0">
+    <title>animal </title>
+    <link rel="stylesheet" href="test.css">
+    <script src="git@github.com:Donierzhon/Animals.git"></script>
+  </head>
+  <body>
+    
+    <div class="animal_Q_box">
+      <h1>what animal do you prefer cat or dog? </h1>
+      <p>what is you're favorite animal?</p>
+      <input placeholder="write here you answer "  class="q_Animal">
+      <button onclick="result()">click</button><br>
+      <!--here i use onClick so when the user click the data would go to the JS and check -->
+      <a  id="picked_link" href="#" target="_blank"></a>
+      
+    </div>
+    <script>
+      
+
+      var ani_list={
+        "dog":"Link",
+        "cat":"https://www.programiz.com/cpp-programming/if-else",
+      }
+      // here is the list which i could add animal and to them value of the web site 
+
+      function result(){
+
+        var anim_ans=document.querySelector(".q_Animal");
+        // here i am calling the class q_Animal and i use querySelector so i could return the value back 
+        
+        var userValue=anim_ans.value.trim().toLowerCase();
+        // i use trim to remove all spaces and toLowerCase so if user write in capital letter i would make them Lower
+
+        var LinkElement=document.getElementById("picked_link")
+        // here i am calling picked_link so i could put the link 
+
+        if(userValue in ani_list){
+          // i use userValue in ani_list so when user write it would search what animal he wrote and watch is it have here or not  
+          var targetLink=ani_list[userValue];
+          // here i am putting in the targetLink the animal and it value in the var 
+
+          LinkElement.href=targetLink;
+          // here i put targetLink to put link where it would go 
+          LinkElement.innerHTML="click here to see infortmation about "+ userValue;
+          // here i put the text so the user could see that he is entering in the site of animal that he chosed 
+          LinkElement.style.color="green";
+          // here i am changing green to show it correct 
+          
+
+        }else{
+          // if the user write different or incorrectly it would go here 
+          LinkElement.href='#';
+          // to the link i will not add anything 
+          LinkElement.innerHTML='ther was mistake';
+          // there would be text that the user write incorrectly 
+          LinkElement.style.color="red";
+          // here i would change to the red to show that he write incorrectly
+
+        }
+        
+      }
+      
+    </script>
+
+  </body>
+</html>
